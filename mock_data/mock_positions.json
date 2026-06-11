@@ -1,0 +1,149 @@
+[
+    {
+        "instrument": {
+            "ticker": "MOCK_AAPL_US_EQ",
+            "name": "mock_Apple",
+            "isin": "US9988776655",
+            "currency": "USD"
+        },
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
+        "quantity": 10.0,
+        "quantityAvailableForTrading": 10.0,
+        "quantityInPies": 0,
+        "currentPrice": 300.0,
+        "averagePricePaid": 265.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 9765.25,
+            "currentValue": 11063.4,
+            "unrealizedProfitLoss": 1298.15,
+            "fxImpact": 7.42
+        }
+    },
+    {
+        "instrument": {
+            "ticker": "MOCK_KO_US_EQ",
+            "name": "mock_Coca-Cola",
+            "isin": "US5544332211",
+            "currency": "USD"
+        },
+        "createdAt": "2026-03-05T13:59:07.000+02:00",
+        "quantity": 50.0,
+        "quantityAvailableForTrading": 50.0,
+        "quantityInPies": 0,
+        "currentPrice": 85.0,
+        "averagePricePaid": 80.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 14756.0,
+            "currentValue": 15673.15,
+            "unrealizedProfitLoss": 917.15,
+            "fxImpact": -4.8
+        }
+    },
+    {
+        "instrument": {
+            "ticker": "MOCK_GS_US_EQ",
+            "name": "mock_Goldman Sachs",
+            "isin": "US1122334455",
+            "currency": "USD"
+        },
+        "createdAt": "2026-03-05T14:00:20.000+02:00",
+        "quantity": 5.0,
+        "quantityAvailableForTrading": 5.0,
+        "quantityInPies": 0,
+        "currentPrice": 1020.0,
+        "averagePricePaid": 870.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 16034.1,
+            "currentValue": 18807.78,
+            "unrealizedProfitLoss": 2773.68,
+            "fxImpact": 7.83
+        }
+    },
+    {
+        "instrument": {
+            "ticker": "MOCK_SAPd_EQ",
+            "name": "mock_SAP",
+            "isin": "DE0001122334",
+            "currency": "EUR"
+        },
+        "createdAt": "2026-03-05T13:59:46.000+02:00",
+        "quantity": 7.0,
+        "quantityAvailableForTrading": 7.0,
+        "quantityInPies": 0,
+        "currentPrice": 145.0,
+        "averagePricePaid": 170.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 5063.45,
+            "currentValue": 4316.8,
+            "unrealizedProfitLoss": -746.65,
+            "fxImpact": -2.38
+        }
+    },
+    {
+        "instrument": {
+            "ticker": "MOCK_TSLA_US_EQ",
+            "name": "mock_Tesla",
+            "isin": "US8877665544",
+            "currency": "USD"
+        },
+        "createdAt": "2026-03-05T13:58:21.000+02:00",
+        "quantity": 15.0,
+        "quantityAvailableForTrading": 15.0,
+        "quantityInPies": 0,
+        "currentPrice": 395.0,
+        "averagePricePaid": 410.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 22671.98,
+            "currentValue": 21850.22,
+            "unrealizedProfitLoss": -821.76,
+            "fxImpact": 8.0
+        }
+    },
+    {
+        "instrument": {
+            "ticker": "MOCK_SHELl_EQ",
+            "name": "mock_Shell",
+            "isin": "GB0011223344",
+            "currency": "GBX"
+        },
+        "createdAt": "2026-03-05T13:59:18.000+02:00",
+        "quantity": 65.0,
+        "quantityAvailableForTrading": 65.0,
+        "quantityInPies": 0,
+        "currentPrice": 3300.0,
+        "averagePricePaid": 3100.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 9925.89,
+            "currentValue": 10571.72,
+            "unrealizedProfitLoss": 645.83,
+            "fxImpact": 4.84
+        }
+    },
+    {
+        "instrument": {
+            "ticker": "MOCK_NVDA_US_EQ",
+            "name": "mock_Nvidia",
+            "isin": "US1020304050",
+            "currency": "USD"
+        },
+        "createdAt": "2026-03-05T13:57:48.000+02:00",
+        "quantity": 30.0,
+        "quantityAvailableForTrading": 30.0,
+        "quantityInPies": 0,
+        "currentPrice": 205.0,
+        "averagePricePaid": 185.0,
+        "walletImpact": {
+            "currency": "PLN",
+            "totalCost": 20454.53,
+            "currentValue": 22679.97,
+            "unrealizedProfitLoss": 2225.44,
+            "fxImpact": 12.77
+        }
+    }
+]

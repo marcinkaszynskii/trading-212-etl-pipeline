@@ -1,0 +1,84 @@
+
+x-airflow-common:
+  &airflow-common
+  build: .  
+  env_file: 
+    - .env  
+  environment:
+    - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+    # PG_PORT is set to 54322 to avoid conflict if there is an existing postgres database on port 5432
+    - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${PG_USERNAME}:${PG_PASSWORD}@postgres_db:5432/${PG_DB}
+    - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    - PYTHONPATH=/opt/airflow  
+    - AIRFLOW__WEBSERVER__SECRET_KEY=haslo_okon
+    - PG_HOST=host.docker.internal
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./src:/opt/airflow/src
+    - ./logs:/opt/airflow/logs
+    - ./mock_data:/opt/airflow/mock_data
+    - ./raw_data:/opt/airflow/raw_data
+    - ./clean_data:/opt/airflow/clean_data
+    - ./gold_data:/opt/airflow/gold_data
+  depends_on:
+    postgres_db:
+      condition: service_healthy
+
+services:
+  postgres_db:
+    image: postgres:15
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${PG_USERNAME}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DB}
+    ports:
+      - "${PG_PORT}:5432"  
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${PG_USERNAME}"]
+      interval: 10s
+      retries: 5
+    restart: always
+
+
+  airflow-init:
+    <<: *airflow-common
+    command: >
+      bash -c "
+      airflow db migrate &&
+      airflow users create
+      --username admin
+      --password admin
+      --firstname Admin
+      --lastname User
+      --role Admin
+      --email admin@example.com
+      "
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${PG_USERNAME}:${PG_PASSWORD}@postgres_db:5432/${PG_DB}
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080" 
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      retries: 3
+    restart: always
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: always
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
