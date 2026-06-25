@@ -3,7 +3,7 @@
         "instrument": {
             "ticker": "MOCK_AAPL_US_EQ",
             "name": "mock_Apple",
-            "isin": "US9988776655",
+            "isin": "US0378331005",
             "currency": "USD"
         },
         "createdAt": "2026-03-05T13:58:08.000+02:00",
@@ -24,7 +24,7 @@
         "instrument": {
             "ticker": "MOCK_KO_US_EQ",
             "name": "mock_Coca-Cola",
-            "isin": "US5544332211",
+            "isin": "US1912161007",
             "currency": "USD"
         },
         "createdAt": "2026-03-05T13:59:07.000+02:00",
@@ -45,7 +45,7 @@
         "instrument": {
             "ticker": "MOCK_GS_US_EQ",
             "name": "mock_Goldman Sachs",
-            "isin": "US1122334455",
+            "isin": "US38141G1040",
             "currency": "USD"
         },
         "createdAt": "2026-03-05T14:00:20.000+02:00",
@@ -66,7 +66,7 @@
         "instrument": {
             "ticker": "MOCK_SAPd_EQ",
             "name": "mock_SAP",
-            "isin": "DE0001122334",
+            "isin": "DE0007164600",
             "currency": "EUR"
         },
         "createdAt": "2026-03-05T13:59:46.000+02:00",
@@ -87,7 +87,7 @@
         "instrument": {
             "ticker": "MOCK_TSLA_US_EQ",
             "name": "mock_Tesla",
-            "isin": "US8877665544",
+            "isin": "US88160R1014",
             "currency": "USD"
         },
         "createdAt": "2026-03-05T13:58:21.000+02:00",
@@ -108,7 +108,7 @@
         "instrument": {
             "ticker": "MOCK_SHELl_EQ",
             "name": "mock_Shell",
-            "isin": "GB0011223344",
+            "isin": "GB00BP6MXD84",
             "currency": "GBX"
         },
         "createdAt": "2026-03-05T13:59:18.000+02:00",
@@ -129,7 +129,7 @@
         "instrument": {
             "ticker": "MOCK_NVDA_US_EQ",
             "name": "mock_Nvidia",
-            "isin": "US1020304050",
+            "isin": "US67066G1040",
             "currency": "USD"
         },
         "createdAt": "2026-03-05T13:57:48.000+02:00",

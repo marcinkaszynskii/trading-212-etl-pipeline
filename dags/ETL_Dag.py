@@ -1,6 +1,5 @@
 from airflow.decorators import dag, task
 from pendulum import datetime
-import logging
 from src.Extractors import Trading212Client, NBPClient
 from src.Transformers import DataFormatter, DataTransformer
 from src.Loaders import SQLLoader
@@ -140,6 +139,3 @@ def etl_dag():
     t_transform_curr >> t_load_curr
 
 etl_dag()
-
-
-

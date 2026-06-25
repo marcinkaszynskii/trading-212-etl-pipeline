@@ -34,10 +34,31 @@ pipeline_212/
 └── .env.example           # template of .env file required to run the pipeline
 ```
 
-to comply with trading 212 api terms of use regarding market data redistribution, this repository does not include real market data. however, you can fully test the pipeline using the demo mode with fictional data.
+## demo version
+
+to comply with yahoofinance and trading 212 api terms of use regarding market data redistribution, this repository does not include real market data. however, you can fully test the pipeline using the demo version with fictional data.
+
+## data forecasting
+
+a standard etl pipeline usually processes a single daily snapshot. while this works for daily production, testing or demonstrating the pipeline's analytical capabilities on a single row of data is highly limited. to make the demo environment credible, robust, and ready for bi dashboard integrations, a forecasting module was built. it generates a dense, year-long dataset.
+
+**methodology:**
+
+1. **isin-to-ticker extraction:** the engine reads the current state of the mock portfolio and extracts the isin codes. using a custom request session, it searches yahoo finance to map these isins to valid market tickers, enabling the download of 3 years of historical close prices.
+
+2. **data masking (compliance):** to strictly comply with data redistribution licenses and terms of use, the real historical prices are never saved in their raw form. immediately after downloading, the data is masked using a randomized noise multiplier. 
+
+3. **geometric brownian motion (GBM):** to project future prices, the pipeline utilizes gbm— a widely accepted market standard in finance used for equity forecasting and options pricing. the engine analyzes the masked historical data to calculate the daily log returns, extracting two critical parameters for each asset:
+   - **sigma (volatility):** the annualized standard deviation of the returns.
+   - **drift:** the expected annualized return rate.
+   these metrics feed a stochastic differential equation that generates independent, randomized price paths for the next 260 business days.
+
+4. **relational transformations:** raw simulated prices are not enough for a relational database. the `SimulationTransformer` melts the wide simulated matrices into a long format and merges them with your base portfolio metrics. the transformations are strictly designed so that the final returned dataframes are structurally identical to the tables extracted from trading 212, allowing any downstream system to consume the forecasted data exactly as if it were real production data.
+
+## lounching the pipeline
 
 1. setup environment variables
-create a .env file in the root directory. for the demo mode, api keys are not required, but postgres credentials must be set:
+create a .env file in the root directory. for the demo version, api keys are not required, but postgres credentials must be set:
 ```text
 
 PG_PASSWORD="postgres"
@@ -48,7 +69,7 @@ PG_DB="trading_data_db"
 
 NBP_DOMAIN="https://api.nbp.pl/api"
 ```
-Note that PG_PORT is set to 54322 instead of standard 5432.
+note that PG_PORT is set to 54322 instead of standard 5432.
 
 2. spin up the infrastructure
 build and start the containers using docker compose:

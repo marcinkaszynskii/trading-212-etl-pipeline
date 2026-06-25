@@ -6,12 +6,13 @@ x-airflow-common:
     - .env  
   environment:
     - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-    # PG_PORT is set to 54322 to avoid conflict if there is an existing postgres database on port 5432
+    # PG_PORT is set to 54322 to avoid conflict if there is an existing postgres database on port 5432.
     - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${PG_USERNAME}:${PG_PASSWORD}@postgres_db:5432/${PG_DB}
     - AIRFLOW__CORE__LOAD_EXAMPLES=False
     - PYTHONPATH=/opt/airflow  
     - AIRFLOW__WEBSERVER__SECRET_KEY=haslo_okon
-    - PG_HOST=host.docker.internal
+    - PG_HOST=postgres_db
+    - PG_PORT=5432
   volumes:
     - ./dags:/opt/airflow/dags
     - ./src:/opt/airflow/src

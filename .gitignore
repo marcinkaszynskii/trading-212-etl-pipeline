@@ -9,6 +9,10 @@ clean_data/*
 gold_data/*
 !gold_data/.gitkeep
 
+mock_data/*
+!mock_data/mock_cash.json
+!mock_data/mock_positions.json
+
 logs/*
 !logs/.gitkeep
 
