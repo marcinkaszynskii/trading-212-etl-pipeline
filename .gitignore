@@ -1,5 +1,7 @@
 .env
 
+212_dashboard.pbit
+
 raw_data/*
 !raw_data/.gitkeep
 

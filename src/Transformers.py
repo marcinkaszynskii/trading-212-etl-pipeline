@@ -301,6 +301,7 @@ class SimulationTransformer:
         df_merged = sim_long_df.merge(pos_fx_df[cols_from_pos], on='inst_ticker', how='left').dropna(subset=['quantity'])
 
         df_merged['date'] = df_merged['date']
+        df_merged = df_merged.drop(columns=['created_at'])
         df_merged['current_price'] = df_merged['sim_price']
         
         # Calcultions
@@ -361,10 +362,10 @@ class SimulationTransformer:
         df_final['position_wallet_share'] = df_final['wallet_current_value'] / df_final['total']
         
         final_cols = [
-            'created_at', 'quantity', 'quantity_available_for_trading', 'quantity_in_pies',
+            'date', 'quantity', 'quantity_available_for_trading', 'quantity_in_pies',
             'current_price', 'average_price_paid', 'inst_ticker', 'inst_name', 'inst_isin',
             'inst_currency', 'wallet_currency', 'wallet_total_cost', 'wallet_current_value',
-            'wallet_unrealized_profit_loss', 'wallet_fx_impact', 'date', 'position_roi',
+            'wallet_unrealized_profit_loss', 'wallet_fx_impact', 'position_roi',
             'country_code', 'position_wallet_share'
         ]
         return df_final[final_cols]

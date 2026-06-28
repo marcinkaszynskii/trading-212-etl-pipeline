@@ -3,14 +3,17 @@ from pendulum import datetime
 from src.Extractors import Trading212Client, NBPClient
 from src.Transformers import DataFormatter, DataTransformer
 from src.Loaders import SQLLoader
+from datetime import timedelta
 
 @dag(
     dag_id="etl_Dag",
     schedule="0 12 * * *",
     start_date=datetime(2026, 6, 8),
-    catchup=False
-
-)
+    catchup=False,
+    default_args= {
+    'retries': 3, 
+    'retry_delay': timedelta(seconds=10)
+})
 def etl_dag():
     @task()
     def extract_212():

@@ -3,10 +3,14 @@ from src.Extractors import Trading212Client, NBPClient
 from src.Transformers import DataFormatter, DataTransformer, SimulationTransformer
 from src.Loaders import SQLLoader
 from src.GBM_sim import YahooExtractor, DataGenerator
+from datetime import timedelta
 
 @dag(
-    dag_id="demo_etl_Dag"
-)
+    dag_id="demo_etl_Dag",
+    default_args= {
+    'retries': 3,   
+    'retry_delay': timedelta(seconds=10)
+})
 def demo_etl_dag():
     @task()
     def extract_212():

@@ -27,7 +27,7 @@
             "isin": "US1912161007",
             "currency": "USD"
         },
-        "createdAt": "2026-03-05T13:59:07.000+02:00",
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
         "quantity": 50.0,
         "quantityAvailableForTrading": 50.0,
         "quantityInPies": 0,
@@ -48,7 +48,7 @@
             "isin": "US38141G1040",
             "currency": "USD"
         },
-        "createdAt": "2026-03-05T14:00:20.000+02:00",
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
         "quantity": 5.0,
         "quantityAvailableForTrading": 5.0,
         "quantityInPies": 0,
@@ -69,7 +69,7 @@
             "isin": "DE0007164600",
             "currency": "EUR"
         },
-        "createdAt": "2026-03-05T13:59:46.000+02:00",
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
         "quantity": 7.0,
         "quantityAvailableForTrading": 7.0,
         "quantityInPies": 0,
@@ -90,7 +90,7 @@
             "isin": "US88160R1014",
             "currency": "USD"
         },
-        "createdAt": "2026-03-05T13:58:21.000+02:00",
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
         "quantity": 15.0,
         "quantityAvailableForTrading": 15.0,
         "quantityInPies": 0,
@@ -111,7 +111,7 @@
             "isin": "GB00BP6MXD84",
             "currency": "GBX"
         },
-        "createdAt": "2026-03-05T13:59:18.000+02:00",
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
         "quantity": 65.0,
         "quantityAvailableForTrading": 65.0,
         "quantityInPies": 0,
@@ -132,7 +132,7 @@
             "isin": "US67066G1040",
             "currency": "USD"
         },
-        "createdAt": "2026-03-05T13:57:48.000+02:00",
+        "createdAt": "2026-03-05T13:58:08.000+02:00",
         "quantity": 30.0,
         "quantityAvailableForTrading": 30.0,
         "quantityInPies": 0,
